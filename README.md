@@ -22,6 +22,7 @@ USER STORIES:
     - Experience
 5. User will be able to search the database of users based on these categories to find groups
 6. User will be be able to see users with similar categories
+
 <------------>
 NICE-TO-HAVES:
 <------------>
