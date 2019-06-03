@@ -83,22 +83,22 @@ HTTP ENDPOINTS
 
 Home Page:
 
-GET ‘/login’ Gets the login page
-GET ‘/logout ‘ Logs the user out
-POST ‘/login ‘ Logs user in
-POST ‘/register’ Registers a user 
+- GET ‘/login’ Gets the login page
+- GET ‘/logout ‘ Logs the user out
+- POST ‘/login ‘ Logs user in
+- POST ‘/register’ Registers a user 
 
 Users:
 
-GET ‘user/’ gets all the user (shows index page based on search results)
-POST ‘user/’ creates a user profile page
-DELETE ‘user/:id’ deletes user profile
-PUT ‘user/:id’ updates user profile
-GET ‘user/:id’ show user page
+- GET ‘user/’ gets all the user (shows index page based on search results)
+- POST ‘user/’ creates a user profile page
+- DELETE ‘user/:id’ deletes user profile
+- PUT ‘user/:id’ updates user profile
+- GET ‘user/:id’ show user page
 
 Groups:
 
-GET ‘group/’ gets the user group page
-POST 'group/' creates a group
-PUT 'group/:id' updates the group page
-DELETE 'group/:id' deletes group page
+- GET ‘group/’ gets the user group page
+- POST 'group/' creates a group
+- PUT 'group/:id' updates the group page
+- DELETE 'group/:id' deletes group page
