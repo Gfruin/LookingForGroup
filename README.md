@@ -39,3 +39,9 @@ STRETCH GOALS:
 3. User-GM will be able to create monster stat-blocks
 4. Users will be able to create posts to discuss D&D
 
+
+<------------>
+APP FEATURES
+<------------>
+This app will use user provided location data. This data will then use the Google Maps API and render the locations on the user match-making page
+
