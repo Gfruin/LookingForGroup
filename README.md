@@ -102,3 +102,18 @@ Groups:
 - POST 'group/' creates a group
 - PUT 'group/:id' updates the group page
 - DELETE 'group/:id' deletes group page
+
+-----------
+WireFrames
+-----------
+
+https://imgur.com/3scgktI
+https://imgur.com/5ntk2k3
+https://imgur.com/gwPkIek
+https://imgur.com/COudxap
+https://imgur.com/kPFZXyh
+https://imgur.com/vW0J8YD
+https://imgur.com/MNzubrB
+https://imgur.com/AggKr1j
+https://imgur.com/8C30ykE
+https://imgur.com/Xh5OMnH
