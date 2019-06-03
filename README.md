@@ -72,10 +72,15 @@ CURRENT FEATURES ----
 - Title
 - Description
 
+4. Model Three- Join_Requests <-----
+- PC id
+- Group id
+- Join: Boolean, null
+
 FORTHCOMING FEATURES ----
-1. Model Three-Posts
-2. Model Four-Messenger
-3. Model Five-Conversation
+1. Model Four-Posts
+2. Model Five-Messenger
+3. Model Six-Conversation
 
 --------
 HTTP ENDPOINTS
@@ -90,18 +95,20 @@ Home Page:
 
 Users:
 
-- GET ‘user/’ gets all the user (shows index page based on search results)
-- POST ‘user/’ creates a user profile page
-- DELETE ‘user/:id’ deletes user profile
-- PUT ‘user/:id’ updates user profile
-- GET ‘user/:id’ show user page
+- GET ‘/user’ gets all the user (shows index page based on search results)
+- POST ‘/user’ creates a user profile page
+- DELETE ‘/user/:id’ deletes user profile
+- PUT ‘/user/:id’ updates user profile
+- GET ‘/user/:id’ show user page
 
 Groups:
 
-- GET ‘group/’ gets the user group page
-- POST 'group/' creates a group
-- PUT 'group/:id' updates the group page
-- DELETE 'group/:id' deletes group page
+- GET ‘/group’ gets the user group page
+- POST '/group' creates a group
+- PUT '/group/:id' updates the group page
+- DELETE /'group/:id' deletes group page
+- GET '/group/join' gets the user group page of join requests
+- POST 'group/join' adds users to the group page
 
 -----------
 WireFrames
