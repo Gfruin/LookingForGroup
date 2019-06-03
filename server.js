@@ -17,12 +17,11 @@ app.use(methodOverride('_method'))
 //require the controllers once made: auth/login controller and user controller (plus others)
 
 
-//top of app if using ejs; get route for home 
 
-app.get('/', (req,res,next) => {
-	res.render('home.ejs')
+// app.get('/', (req,res,next) => {
+// 	res.render('home.ejs')
 
-})
+// })
 
 //app listener
 
