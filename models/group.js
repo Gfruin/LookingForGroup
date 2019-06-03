@@ -3,14 +3,14 @@ const mongoose = require('mongoose')
 
 //create the group schema
 const groupSchema = new mongoose.Schema({
-	gamemaster: {
+	gamemaster: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
-	},
-	playerCharacters: {
+	}],
+	playerCharacters: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
-	},
+	}],
 	title: String,
 	description: String
 })
