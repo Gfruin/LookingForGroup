@@ -10,8 +10,16 @@ const userSchema = new mongoose.Schema({
 	description: String,
 	firstName: String,
 	lastName: String,
-	userName: String,
-	email: String,
+	userName: {
+		type: String,
+		required: true,
+		unique: true
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true
+	},
 	//may need to change the structure of the location object data
 	//geoJson? 
 	location: {
