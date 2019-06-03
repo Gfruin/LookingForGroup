@@ -12,6 +12,8 @@ const userSchema = new mongoose.Schema({
 	lastName: String,
 	userName: String,
 	email: String,
+	//may need to change the structure of the location object data
+	//geoJson? 
 	location: {
 		address: String,
 		latitude: String,
