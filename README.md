@@ -29,8 +29,7 @@ NICE-TO-HAVES:
 ------------
 1. User-GM will be able to create game pages based on current games and invite PC-users to the page
 2. User will be able to upload images to their posts, group pages, and profiles
-3. Users will be able to send out push notifications based on current conversations
-4. Ratings for PC’s and GM’s and comments 
+3. Ratings for PC’s and GM’s and comments 
 
 ------------
 STRETCH GOALS:
@@ -39,13 +38,19 @@ STRETCH GOALS:
 2. Users will be able to search information about spells, items, monsters based on search term
 3. User-GM will be able to create monster stat-blocks
 4. Users will be able to create posts to discuss D&D
+5. Users will be able to have conversations with multiple participants
+6. Users will be able to send out push notifications based on current conversations
 
 
 ------------
 APP FEATURES
 ------------
 
+CURRENT FEATURES ----
 1. This app will use user provided location data. This data will then use the Google Maps API and render the locations on the user match-making page
+2. Model One-User
+3. Model Two-Messenger
+FORTHCOMING FEATURES ----
+1. Model 3-Conversation
+2. Model 4-Posts
 
-1. Model One-User
-2. Model Two-Messenger
