@@ -46,4 +46,5 @@ APP FEATURES
 
 1. This app will use user provided location data. This data will then use the Google Maps API and render the locations on the user match-making page
 
-1. One Model- User
+1. Model One-User
+2. Model Two-Messenger
