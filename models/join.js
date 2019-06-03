@@ -2,19 +2,32 @@
 const mongoose = require('mongoose')
 // define the joinSchema
 const joinSchema = new mongoose({
-	gamemasterId: [{
+	// gamemasterId: [{
+	// 	type: mongoose.Schema.Types.ObjectId,
+	// 	ref: "User"
+	// }],
+	// playerCharacterId: [{
+	// 	type: mongoose.Schema.Types.ObjectId,
+	// 	ref: "User"
+	// }], // -----> can just identify by user
+	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
-	}],
-	playerCharacterIds: [{
+	},
+	groupId: {
 		type: mongoose.Schema.Types.ObjectId,
-		ref: "User"
-	}],
-	groupId: String,
-	join: {
+		ref: "Group"
+	},
+	joined: {
 		type: Boolean,
-		default: null
+		default: false
+	},
+	resolved: {
+		type: Boolean,
+		default: false
 	}
+
+	//
 })
 //define the join model
 const Join = mongoose.model("Join", joinSchema)
