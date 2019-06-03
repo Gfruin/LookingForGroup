@@ -22,6 +22,7 @@ USER STORIES:
     - Experience
 5. User will be able to search the database of users based on these categories to find groups
 6. User will be be able to see users with similar categories
+7. Users will be able to Direct Message(DM) other users to communicate
 
 ------------
 NICE-TO-HAVES:
