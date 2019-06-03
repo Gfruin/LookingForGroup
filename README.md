@@ -22,14 +22,15 @@ USER STORIES:
     - Experience
 5. User will be able to search the database of users based on these categories to find groups
 6. User will be be able to see users with similar categories
-7. Users will be able to Direct Message(DM) other users to communicate
+7. User-GM will be able to create game pages based on current games and invite PC-users to the page
 
 ------------
 NICE-TO-HAVES:
 ------------
-1. User-GM will be able to create game pages based on current games and invite PC-users to the page
-2. User will be able to upload images to their posts, group pages, and profiles
-3. Ratings for PC’s and GM’s and comments 
+
+1. User will be able to upload images to their posts, group pages, and profiles
+2. Ratings for PC’s and GM’s and comments 
+3. Users will be able to Direct Message(DM) other users to communicate
 
 ------------
 STRETCH GOALS:
