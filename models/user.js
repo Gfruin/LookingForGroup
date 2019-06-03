@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 //define the schema
 const userSchema = new mongoose.Schema({
 	gamemaster: Boolean,
+	playerCharacter: Boolean //maybe take out? 
 	lookingForGroup: Boolean,
 	gameMaterials: String,
 	experience: Number,
