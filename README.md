@@ -47,10 +47,12 @@ APP FEATURES
 ------------
 
 CURRENT FEATURES ----
+
 1. This app will use user provided location data. This data will then use the Google Maps API and render the locations on the user match-making page
 2. Model One-User
 3. Model Two-Messenger
 4. Model Three-Conversation
+
 FORTHCOMING FEATURES ----
 1. Model Four-Posts
 
