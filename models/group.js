@@ -11,6 +11,10 @@ const groupSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
 	}],
+	requestsReceived: [{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Join"
+	}],
 	title: String,
 	description: String
 })
