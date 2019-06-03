@@ -10,6 +10,7 @@ const joinSchema = new mongoose({
 	// 	type: mongoose.Schema.Types.ObjectId,
 	// 	ref: "User"
 	// }], // -----> can just identify by user
+	message: String,
 	user: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "User"
