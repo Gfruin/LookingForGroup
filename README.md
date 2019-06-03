@@ -108,7 +108,7 @@ Groups:
 - PUT '/group/:id' updates the group page
 - DELETE /'group/:id' deletes group page
 - GET '/group/join' gets the user group page of join requests
-- POST 'group/join' adds users to the group page
+- POST '/group/join' adds users to the group page
 
 -----------
 WireFrames
