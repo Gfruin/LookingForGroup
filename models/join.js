@@ -2,8 +2,14 @@
 const mongoose = require('mongoose')
 // define the joinSchema
 const joinSchema = new mongoose({
-	gamemasterId: String,
-	playerCharacterId: String,
+	gamemasterId: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "User"
+	}],
+	playerCharacterIds: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "User"
+	}],
 	groupId: String,
 	join: {
 		type: Boolean,
