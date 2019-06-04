@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 router.get('/login', async (req,res,next) => {
 	try {
 		res.json({
-			status: 500 //is this correct?
+			status: 500, //is this correct?
 			data: 'you are not logged in'
 		})
 	} catch(err) {

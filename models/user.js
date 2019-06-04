@@ -4,13 +4,14 @@ const mongoose = require('mongoose')
 //define the schema
 const userSchema = new mongoose.Schema({
 	gamemaster: Boolean,
-	playerCharacter: Boolean //maybe take out? 
+	playerCharacter: Boolean, //maybe take out? 
 	lookingForGroup: Boolean,
 	gameMaterials: String,
 	experience: Number,
 	description: String,
 	firstName: String,
 	lastName: String,
+	password: String,
 	username: {
 		type: String,
 		required: true,
@@ -21,8 +22,8 @@ const userSchema = new mongoose.Schema({
 		required: true,
 		unique: true
 	},
-	//may need to change the structure of the location object data
-	//geoJson? 
+	// may need to change the structure of the location object data
+	// geoJson? 
 	location: {
 		address: String,
 		latitude: String,
