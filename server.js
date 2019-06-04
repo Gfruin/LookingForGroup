@@ -6,12 +6,14 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 
 //will need dotenv require and PORT and API_KEY requires
-const PORT = 3000
+require('dotenv').config()
+const PORT = process.env.PORT
 //will need to require database once created
+require('./db/db');
 
 //middleware
 app.use(session({
-	secret: 'Cthulu',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false
 }))
@@ -32,8 +34,8 @@ app.use('/api/v1/auth', authController)
 
 //app listener
 
-app.listen(PORT, () => {
-	console.log('app listening on PORT', 3000);
+app.listen(process.env.PORT, () => {
+	console.log('app listening on PORT', process.env.PORT);
 })
 
 
