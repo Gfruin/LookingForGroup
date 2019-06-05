@@ -3,14 +3,16 @@ const router = express.Router();
 const User = require('../models/user');
 const Group = require('../models/group');
 const Join = require('../models/join');
+const session = require('express-session')
 
 
-//user index route 
+//user index all users route 
 //Needs to grab all the users with username and basic infor
 //needs to display all the users on the google map
 
 router.get('/', async (req,res,next) => {
 	console.log(req.body, 'this is the req.body for all users');
+	console.log(req.session);
 	try {
 		const allUsers = await User.find(); //need to change this to specify
 		res.json({ 							// by certain search results
@@ -20,8 +22,38 @@ router.get('/', async (req,res,next) => {
 	} catch(err) {
 		next(err)
 	}
-}) //end of user index route
+}) //end of user index all users route
 
+//user index route to display users that match certain parameters
+router.get('/match', async (req,res,next) => {
+	console.log(req.session.userDBId, 'here is the req.session.userDBId');
+	console.log("^^^^^^^^^^^^^^^^^ req.session.userDBId");
+	console.log(req.session, 'here is the req.session');
+	// console.log(User, "here is the User");
+	try {
+		const foundUser = await User.findById(req.session.userDBId) //will need req.session._id
+		console.log(foundUser, "here is the foundUser");
+		console.log(foundUser.gamesystem.dnd5e, "here is the gamesystem");
+		// res.json({
+		// 	status: 200,
+		// 	data: foundUser
+		// })
+		if(foundUser.gamemaster == false) {
+			const findGameMaster = await User.find({gamemaster: true})
+			// console.log(foundUser, 'here is the foundUser again');
+			console.log(findGameMaster, 'here are all the users that match');
+			res.json({
+				status: 200,
+				data: findGameMaster
+			})
+		}
+		// if(foundUser.gamesystem.dnd5e == true) {
+		// }
+
+	} catch(err) {
+		next(err)
+	}
+}) //end of user index route for particular parameters
 
 //user create/post route 
 //needs to create a User entry based on the 
@@ -73,7 +105,8 @@ router.delete('/:id', async (req,res,next) => {
 		const deletedUser = await User.findByIdAndRemove(req.params.id);
 		res.json({
 			status: 200,
-			data: deletedUser
+			data: deletedUser,
+			message: "You successfully deleted a user!"
 		})
 
 	} catch(err) {

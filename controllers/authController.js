@@ -54,11 +54,15 @@ router.post('/login', async (req,res,next) => {
 	try {
 		const foundUser = await User.findOne({'email': req.body.email})
 		console.log(foundUser, 'here is the foundUser');
+		console.log(foundUser.email, "here is the foundUser.email");
+		console.log(foundUser.password, "here is the foundUser.email");
+
 		if(foundUser) {
 			if(bcrypt.compareSync(req.body.password, foundUser.password) === true) {
 				req.session.message = '';
 				req.session.logged = true;
 				req.session.userDBId = foundUser._id;
+				console.log(req.session.userDBId, 'here is the req.session.userDBId');
 				req.session.username = foundUser.username;
 				req.session.email = foundUser.email;
 				console.log(req.session, 'you have successfully logged in');
