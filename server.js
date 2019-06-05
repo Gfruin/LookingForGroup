@@ -24,9 +24,11 @@ app.use(methodOverride('_method'))
 
 //require the controllers once made: auth/login controller and user controller (plus others)
 const authController = require('./controllers/authController');
+const userController = require('./controllers/userController');
 
 
 app.use('/api/v1/auth', authController)
+app.use('/api/v1/user', userController)
 // app.get('/', (req,res,next) => {
 // 	res.render('home.ejs')
 

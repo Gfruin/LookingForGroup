@@ -1,7 +1,7 @@
 //require mongoose
 const mongoose = require('mongoose')
 // define the joinSchema
-const joinSchema = new mongoose({
+const joinSchema = new mongoose.Schema({
 	// gamemasterId: [{
 	// 	type: mongoose.Schema.Types.ObjectId,
 	// 	ref: "User"
