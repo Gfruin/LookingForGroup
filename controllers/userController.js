@@ -31,23 +31,12 @@ router.get('/match', async (req,res,next) => {
 	console.log(req.session, 'here is the req.session');
 	// console.log(User, "here is the User");
 	try {
-		const foundUser = await User.findById(req.session.userDBId) //will need req.session._id
-		// console.log(foundUser, "foundUser");
-		// console.log(foundUser, "here is the foundUser");
-		// console.log(foundUser.gamesystem.dnd5e, "here is the gamesystem");
-		// res.json({
-		// 	status: 200,
-		// 	data: foundUser
-		// })
+		const foundUser = await User.findById(req.session.userDBId) //will need 
 	
 		//<--------------GM/PC LOOKING FOR D&D 5E GROUP---------------->
 
 		let foundResults = {};
-		//foundResults.fifthEd = {players:[], gamemasters:[]};
-		// console.log(foundResults);
-		// console.log(foundResults.fifthEd, 'here is foundResults.fifthEd');
-		// console.log(foundResults.fifthEd.players, 'here is foundResults.fifthEd.players');
-		// console.log(foundResults.fifthEd.gamemasters, 'here is the foundResults.fifthEd.gamemasters');
+		
 		//<-----PC looking for GM----->>>>>>
 		if(
 			(
@@ -137,8 +126,8 @@ router.get('/match', async (req,res,next) => {
 				)
 
 			) {
-			let foundDungeonMaster = await User.find(
-				{$and:[
+			let foundDungeonMaster = await User.find({
+				$and:[
 					{
 						gamemaster: true
 					},
@@ -190,7 +179,7 @@ router.get('/match', async (req,res,next) => {
 			foundResults.fifthEd = {players:[], gamemasters: foundDungeonMaster};
 			console.log("4th if");
 		}
-// <<<<----------GM looking for PC's------->>>>>>>>
+// <<<<----------GM looking for PC's D&D5e------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
@@ -340,7 +329,7 @@ router.get('/match', async (req,res,next) => {
 			console.log("4th if, foundPC");
 		}
 
-/// <<<<<<------Pathfinder ifs----->>>>>>>>>??????
+/// <<<<<<------Pathfinder LFG playerCharacter----->>>>>>>>>??????
 
 		if(
 			(
@@ -484,7 +473,7 @@ router.get('/match', async (req,res,next) => {
 			foundResults.pathfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("4th if, foundGameMaster for pathfinder");
 		}
-// <<<<----------GM looking for PC's------->>>>>>>>
+// <<<<----------GM looking for PC's pathfinder------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
@@ -628,7 +617,7 @@ router.get('/match', async (req,res,next) => {
 			console.log("4th if, foundPC for pathfinder");
 		}
 
-//<<<<<<<<<------------user starfinder logic-------->>>>>>>>>>>>
+//<<<<<<<<<------------  LFG starfinder playerCharacter -------->>>>>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
@@ -914,7 +903,7 @@ router.get('/match', async (req,res,next) => {
 			foundResults.starfinder = {players: foundPC};
 			console.log("4th if, foundPC for starfinder");
 		}
-//<<<<<<<<<----------LFG dnd3_5 user--------->>>>>>>>>>>>>
+//<<<<<<<<<----------LFG dnd3_5 playerCharacter--------->>>>>>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
@@ -1200,7 +1189,7 @@ router.get('/match', async (req,res,next) => {
 			console.log("4th if, foundPC for dnd3_5");
 		}
 
-//<<<<<<<<----------------LFG call of Cthulu user --------->>>>>>>>>
+//<<<<<<<<----------------LFG call of Cthulu playerCharacter --------->>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
