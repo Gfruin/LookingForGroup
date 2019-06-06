@@ -19,7 +19,7 @@
 // 		const foundUser = await User.findById(req.session.userDBId) //will need req.session._id
 // 		console.log(foundUser, "foundUser");
 // 		console.log(foundUser, "here is the foundUser");
-// 		console.log(foundUser.gamesystem.starfinder, "here is the gamesystem");
+// 		console.log(foundUser.gamesystem.dnd3_5, "here is the gamesystem");
 // 		// res.json({
 // 		// 	status: 200,
 // 		// 	data: foundUser
@@ -32,13 +32,13 @@
 // 		if(
 // 			(
 // 				foundUser.gamemaster == false && 
-// 				foundUser.gamesystem.starfinder == true && 
+// 				foundUser.gamesystem.dnd3_5 == true && 
 // 				foundUser.gamestyle.roleplay == true 
 // 			)
 // 			|| 
 // 			(
 // 				foundUser.playerCharacter == true && 
-// 				foundUser.gamesystem.starfinder == true && 
+// 				foundUser.gamesystem.dnd3_5 == true && 
 // 				foundUser.gamestyle.roleplay == true
 // 			)
 // 		) {
@@ -50,10 +50,10 @@
 // 					}, 
 // 					// {
 // 					// 	gamesystem: {
-// 					// 		starfinder: true
+// 					// 		dnd3_5: true
 // 					// 	}
 // 					// }, 
-// 					{"gamesystem.starfinder" : true},
+// 					{"gamesystem.dnd3_5" : true},
 // 					{
 // 						lookingForGroup: true
 // 					}, 
@@ -102,13 +102,13 @@
 if(
 			(
 				foundUser.gamemaster == false && 
-				foundUser.gamesystem.starfinder == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
 				foundUser.gamestyle.roleplay == true 
 			)
 			|| 
 			(
 				foundUser.playerCharacter == true && 
-				foundUser.gamesystem.starfinder == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
 				foundUser.gamestyle.roleplay == true
 			)
 		) {
@@ -120,7 +120,7 @@ if(
 					}, 
 			
 					{
-						"gamesystem.starfinder" : true
+						"gamesystem.dnd3_5" : true
 
 					},
 
@@ -142,19 +142,19 @@ if(
 				data: foundGameMaster
 			})
 
-			console.log("1st if, foundGameMaster for starfinder");
+			console.log("1st if, foundGameMaster for dnd3_5");
 		}// if
 
 		else if(
 				(
 					foundUser.gamemaster == false && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.combat == true
 				) 
 				|| 
 				(
 					foundUser.playerCharacter == true && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.combat == true
 				)
 			) {
@@ -166,7 +166,7 @@ if(
 					},
 
 					{
-						"gamesystem.starfinder": true
+						"gamesystem.dnd3_5": true
 					}, 
 
 					{
@@ -184,19 +184,19 @@ if(
 				data: foundGameMaster
 			})
 
-			console.log("2nd if, foundGameMaster for starfinder");
+			console.log("2nd if, foundGameMaster for dnd3_5");
 		}
 
 		else if(
 				(
 					foundUser.gamemaster == false && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.dungeonCrawl == true
 				) 
 				|| 
 				(
 					foundUser.playerCharacter == true && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.dungeonCrawl == true
 				)
 
@@ -208,7 +208,7 @@ if(
 					},
 
 					{
-						"gamesystem.starfinder": true
+						"gamesystem.dnd3_5": true
 					},
 
 					{
@@ -224,19 +224,19 @@ if(
 				status: 200,
 				data: foundGameMaster
 			})
-			console.log("3rd if, foundGameMaster for starfinder");
+			console.log("3rd if, foundGameMaster for dnd3_5");
 		}
 
 		else if(
 				(
 					foundUser.gamemaster == false && 
-					foundUser.gamesystem.starfinder == true
+					foundUser.gamesystem.dnd3_5 == true
 				) 
 				|| 
 				(
 					
 					foundUser.playerCharacter == true && 
-					foundUser.gamesystem.starfinder == true
+					foundUser.gamesystem.dnd3_5 == true
 				)
 			) {
 			let foundGameMaster = await User.find(
@@ -246,7 +246,7 @@ if(
 					},
 
 					{
-					 	"gamesystem.starfinder": true
+					 	"gamesystem.dnd3_5": true
 					},
 
 					{
@@ -259,19 +259,19 @@ if(
 				status: 200,
 				data: foundGameMaster
 			})
-			console.log("4th if, foundGameMaster for starfinder");
+			console.log("4th if, foundGameMaster for dnd3_5");
 		}
 // <<<<----------GM looking for PC's------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
-				foundUser.gamesystem.starfinder == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
 				foundUser.gamestyle.roleplay == true 
 			)
 			|| 
 			(
 				foundUser.playerCharacter == false && 
-				foundUser.gamesystem.starfinder == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
 				foundUser.gamestyle.roleplay == true
 			)
 		) {
@@ -283,7 +283,7 @@ if(
 					}, 
 			
 					{
-						"gamesystem.starfinder" : true
+						"gamesystem.dnd3_5" : true
 
 					},
 
@@ -306,19 +306,19 @@ if(
 				data: foundPC
 			})
 			
-			console.log("1st if, foundPC for starfinder");
+			console.log("1st if, foundPC for dnd3_5");
 		}// if
 
 		else if(
 				(
 					foundUser.gamemaster == true && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.combat == true
 				) 
 				|| 
 				(
 					foundUser.playerCharacter == false && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.combat == true
 				)
 			) {
@@ -330,7 +330,7 @@ if(
 					},
 
 					{
-						"gamesystem.starfinder": true
+						"gamesystem.dnd3_5": true
 					}, 
 
 					{
@@ -348,19 +348,19 @@ if(
 				data: foundPC
 			})
 
-			console.log("2nd if, foundPC for starfinder");
+			console.log("2nd if, foundPC for dnd3_5");
 		}
 
 		else if(
 				(
 					foundUser.gamemaster == true && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.dungeonCrawl == true
 				) 
 				|| 
 				(
 					foundUser.playerCharacter == false && 
-					foundUser.gamesystem.starfinder == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
 					foundUser.gamestyle.dungeonCrawl == true
 				)
 
@@ -372,7 +372,7 @@ if(
 					},
 
 					{
-						"gamesystem.starfinder": true
+						"gamesystem.dnd3_5": true
 					},
 
 					{
@@ -388,19 +388,19 @@ if(
 				status: 200,
 				data: foundPC
 			})
-			console.log("3rd if, foundPC, for starfinder");
+			console.log("3rd if, foundPC, for dnd3_5");
 		}
 
 		else if(
 				(
 					foundUser.gamemaster == true && 
-					foundUser.gamesystem.starfinder == true
+					foundUser.gamesystem.dnd3_5 == true
 				) 
 				|| 
 				(
 					
 					foundUser.playerCharacter == false && 
-					foundUser.gamesystem.starfinder == true
+					foundUser.gamesystem.dnd3_5 == true
 				)
 			) {
 			let foundPC = await User.find(
@@ -410,7 +410,7 @@ if(
 					},
 
 					{
-					 	"gamesystem.starfinder": true
+					 	"gamesystem.dnd3_5": true
 					},
 
 					{
@@ -423,12 +423,36 @@ if(
 				status: 200,
 				data: foundPC
 			})
-			console.log("4th if, foundPC for starfinder");
+			console.log("4th if, foundPC for dnd3_5");
 		}
 
 
 
 
+// // <----looking only for gamemaster---->
+		// if(foundUser.gamemaster == false || foundUser.playerCharacter == true) {
+		// 	const findGameMaster = await User.find({gamemaster: true})
+		// 	// console.log(foundUser, 'here is the foundUser again');
+		// 	console.log(findGameMaster, 'here are all the users that match');
+		// 	res.json({
+		// 		status: 200,
+		// 		data: findGameMaster
+		// 	})
+		// }
+		// //<-----looking for group----->
+		// const lookingForGroup = await User.find({lookingForGroup: true})
+
+		// // if(foundUser.gamesystem.dnd5e == true) {
+		// // }
+		// // if foundUser marks true for any gamesystems and found users have any of these game systems marked true
+		// if(foundUser.gamesystem.dnd5e == true || foundUser.gamesystem.pathfinder == true || 
+		// 	foundUser.gamesystem.dnd3_5 == true || foundUser.gamesystem.dnd3_5 == true || foundUser.gamesystem.callOfCthulu == true) {
+		// 	const findGameSystem = await User.find({$or:[{gamesystem: {dnd5e: true}},{gamesystem: {pathfinder: true}},{gamesystem: {dnd3_5: true}},{gamesystem: {dnd3_5: true}},{gamesystem: {callOfCthulu: true}} ]})
+		// 	res.json({
+		// 		status: 200,
+		// 		data: findGameSystem
+		// 	})
+		// }
 
 
 

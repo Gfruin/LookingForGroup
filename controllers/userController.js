@@ -1026,6 +1026,332 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundPC for starfinder");
 		}
+		if(
+			(
+				foundUser.gamemaster == false && 
+				foundUser.gamesystem.dnd3_5 == true && 
+				foundUser.gamestyle.roleplay == true 
+			)
+			|| 
+			(
+				foundUser.playerCharacter == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
+				foundUser.gamestyle.roleplay == true
+			)
+		) {
+
+			let foundGameMaster = await User.find({
+				$and: [
+					{
+						gamemaster: true
+					}, 
+			
+					{
+						"gamesystem.dnd3_5" : true
+
+					},
+
+					{
+						lookingForGroup: true
+					}, 
+					
+					{
+						"gamestyle.roleplay" : true}
+				]
+			})
+			
+
+			// console.log("\n\n\n\n\n here is what the query found")
+			// console.log(foundGameMaster, "foundGameMaster");
+
+			res.json({
+				status: 200,
+				data: foundGameMaster
+			})
+
+			console.log("1st if, foundGameMaster for dnd3_5");
+		}// if
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.combat == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.combat == true
+				)
+			) {
+
+			let foundGameMaster = await User.find({
+				$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+						"gamesystem.dnd3_5": true
+					}, 
+
+					{
+						lookingForGroup: true
+					}, 
+
+					{
+						"gamestyle.combat": true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundGameMaster
+			})
+
+			console.log("2nd if, foundGameMaster for dnd3_5");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				)
+
+			) {
+			let foundGameMaster = await User.find(
+				{$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+						"gamesystem.dnd3_5": true
+					},
+
+					{
+						lookingForGroup: true
+					},
+
+					{
+						"gamestyle.dungeonCrawl":true
+					}
+				]
+			})
+			res.json({
+				status: 200,
+				data: foundGameMaster
+			})
+			console.log("3rd if, foundGameMaster for dnd3_5");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd3_5 == true
+				) 
+				|| 
+				(
+					
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd3_5 == true
+				)
+			) {
+			let foundGameMaster = await User.find(
+				{$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+					 	"gamesystem.dnd3_5": true
+					},
+
+					{
+						lookingForGroup: true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundGameMaster
+			})
+			console.log("4th if, foundGameMaster for dnd3_5");
+		}
+// <<<<----------GM looking for PC's------->>>>>>>>
+		if(
+			(
+				foundUser.gamemaster == true && 
+				foundUser.gamesystem.dnd3_5 == true && 
+				foundUser.gamestyle.roleplay == true 
+			)
+			|| 
+			(
+				foundUser.playerCharacter == false && 
+				foundUser.gamesystem.dnd3_5 == true && 
+				foundUser.gamestyle.roleplay == true
+			)
+		) {
+
+			let foundPC = await User.find({
+				$and: [
+					{
+						playerCharacter: true 
+					}, 
+			
+					{
+						"gamesystem.dnd3_5" : true
+
+					},
+
+					{
+						lookingForGroup: true
+					}, 
+					
+					{
+						"gamestyle.roleplay" : true}
+				]
+
+			})
+			
+
+			// console.log("\n\n\n\n\n here is what the query found")
+			// console.log(foundGameMaster, "foundGameMaster");
+
+			res.json({
+				status: 200,
+				data: foundPC
+			})
+			
+			console.log("1st if, foundPC for dnd3_5");
+		}// if
+
+		else if(
+				(
+					foundUser.gamemaster == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.combat == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == false && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.combat == true
+				)
+			) {
+
+			let foundPC = await User.find({
+				$and:[
+					{
+						playerCharacter: true
+					},
+
+					{
+						"gamesystem.dnd3_5": true
+					}, 
+
+					{
+						lookingForGroup: true
+					}, 
+
+					{
+						"gamestyle.combat": true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundPC
+			})
+
+			console.log("2nd if, foundPC for dnd3_5");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == true && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == false && 
+					foundUser.gamesystem.dnd3_5 == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				)
+
+			) {
+			let foundPC = await User.find(
+				{$and:[
+					{
+						playerCharacter: true
+					},
+
+					{
+						"gamesystem.dnd3_5": true
+					},
+
+					{
+						lookingForGroup: true
+					},
+
+					{
+						"gamestyle.dungeonCrawl":true
+					}
+				]
+			})
+			res.json({
+				status: 200,
+				data: foundPC
+			})
+			console.log("3rd if, foundPC, for dnd3_5");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == true && 
+					foundUser.gamesystem.dnd3_5 == true
+				) 
+				|| 
+				(
+					
+					foundUser.playerCharacter == false && 
+					foundUser.gamesystem.dnd3_5 == true
+				)
+			) {
+			let foundPC = await User.find(
+				{$and:[
+					{
+						playerCharacter: true
+					},
+
+					{
+					 	"gamesystem.dnd3_5": true
+					},
+
+					{
+						lookingForGroup: true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundPC
+			})
+			console.log("4th if, foundPC for dnd3_5");
+		}
 
 	} catch(err) {
 		next(err)
