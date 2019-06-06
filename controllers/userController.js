@@ -32,28 +32,212 @@ router.get('/match', async (req,res,next) => {
 	// console.log(User, "here is the User");
 	try {
 		const foundUser = await User.findById(req.session.userDBId) //will need req.session._id
+		console.log(foundUser, "foundUser");
 		console.log(foundUser, "here is the foundUser");
 		console.log(foundUser.gamesystem.dnd5e, "here is the gamesystem");
 		// res.json({
 		// 	status: 200,
 		// 	data: foundUser
 		// })
-		if(foundUser.gamemaster == false) {
-			const findGameMaster = await User.find({gamemaster: true})
-			// console.log(foundUser, 'here is the foundUser again');
-			console.log(findGameMaster, 'here are all the users that match');
+
+		//<--------------GM/PC LOOKING FOR D&D 5E GROUP---------------->
+
+		//<-----PC looking for GM----->>>>>>
+		if(
+			(
+				foundUser.gamemaster == false && 
+				foundUser.gamesystem.dnd5e == true && 
+				foundUser.gamestyle.roleplay == true 
+			)
+			|| 
+			(
+				foundUser.playerCharacter == true && 
+				foundUser.gamesystem.dnd5e == true && 
+				foundUser.gamestyle.roleplay == true
+			)
+		) {
+
+			let foundDungeonMaster = await User.find({
+				$and: [
+					{
+						gamemaster: true
+					}, 
+			
+					{
+						"gamesystem.dnd5e" : true
+
+					},
+
+					{
+						lookingForGroup: true
+					}, 
+					
+					{
+						"gamestyle.roleplay" : true}
+				]
+			})
+			
+
+			// console.log("\n\n\n\n\n here is what the query found")
+			// console.log(foundDungeonMaster, "foundDungeonMaster");
+
 			res.json({
 				status: 200,
-				data: findGameMaster
+				data: foundDungeonMaster
 			})
-		}
-		// if(foundUser.gamesystem.dnd5e == true) {
-		// }
 
+			console.log("1st if");
+		}// if
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd5e == true && 
+					foundUser.gamestyle.combat == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd5e == true && 
+					foundUser.gamestyle.combat == true
+				)
+			) {
+
+			let foundDungeonMaster = await User.find({
+				$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+						"gamesystem.dnd5e": true
+					}, 
+
+					{
+						lookingForGroup: true
+					}, 
+
+					{
+						"gamestyle.combat": true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundDungeonMaster
+			})
+
+			console.log("2nd if");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd5e == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				) 
+				|| 
+				(
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd5e == true && 
+					foundUser.gamestyle.dungeonCrawl == true
+				)
+
+			) {
+			let foundDungeonMaster = await User.find(
+				{$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+						"gamesystem.dnd5e": true
+					},
+
+					{
+						lookingForGroup: true
+					},
+
+					{
+						"gamestyle.dungeonCrawl":true
+					}
+				]
+			})
+			res.json({
+				status: 200,
+				data: foundDungeonMaster
+			})
+			console.log("3rd if");
+		}
+
+		else if(
+				(
+					foundUser.gamemaster == false && 
+					foundUser.gamesystem.dnd5e == true
+				) 
+				|| 
+				(
+					
+					foundUser.playerCharacter == true && 
+					foundUser.gamesystem.dnd5e == true
+				)
+			) {
+			let foundDungeonMaster = await User.find(
+				{$and:[
+					{
+						gamemaster: true
+					},
+
+					{
+					 	"gamesystem.dnd5e": true
+					},
+
+					{
+						lookingForGroup: true
+					}
+				]
+			})
+
+			res.json({
+				status: 200,
+				data: foundDungeonMaster
+			})
+			console.log("4th if");
+		}
+// <<<<----------GM looking for PC's------->>>>>>>>
+		
 	} catch(err) {
 		next(err)
 	}
 }) //end of user index route for particular parameters
+		
+
+
+		// // <----looking only for gamemaster---->
+		// if(foundUser.gamemaster == false || foundUser.playerCharacter == true) {
+		// 	const findGameMaster = await User.find({gamemaster: true})
+		// 	// console.log(foundUser, 'here is the foundUser again');
+		// 	console.log(findGameMaster, 'here are all the users that match');
+		// 	res.json({
+		// 		status: 200,
+		// 		data: findGameMaster
+		// 	})
+		// }
+		// //<-----looking for group----->
+		// const lookingForGroup = await User.find({lookingForGroup: true})
+
+		// // if(foundUser.gamesystem.dnd5e == true) {
+		// // }
+		// // if foundUser marks true for any gamesystems and found users have any of these game systems marked true
+		// if(foundUser.gamesystem.dnd5e == true || foundUser.gamesystem.pathfinder == true || 
+		// 	foundUser.gamesystem.starfinder == true || foundUser.gamesystem.dnd3_5 == true || foundUser.gamesystem.callOfCthulu == true) {
+		// 	const findGameSystem = await User.find({$or:[{gamesystem: {dnd5e: true}},{gamesystem: {pathfinder: true}},{gamesystem: {starfinder: true}},{gamesystem: {dnd3_5: true}},{gamesystem: {callOfCthulu: true}} ]})
+		// 	res.json({
+		// 		status: 200,
+		// 		data: findGameSystem
+		// 	})
+		// }
 
 //user create/post route 
 //needs to create a User entry based on the 

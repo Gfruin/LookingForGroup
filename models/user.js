@@ -44,6 +44,7 @@ const userSchema = new mongoose.Schema({
 		dungeonCrawl: Boolean,
 		other: String
 	},
+	//maybe add group field of groups that the user is in
 
 })
 
