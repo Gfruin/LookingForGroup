@@ -43,7 +43,7 @@ router.get('/match', async (req,res,next) => {
 		//<--------------GM/PC LOOKING FOR D&D 5E GROUP---------------->
 
 		let foundResults = {};
-		foundResults.fifthEd = {players:[], gamemasters:[]};
+		//foundResults.fifthEd = {players:[], gamemasters:[]};
 		// console.log(foundResults);
 		// console.log(foundResults.fifthEd, 'here is foundResults.fifthEd');
 		// console.log(foundResults.fifthEd.players, 'here is foundResults.fifthEd.players');
@@ -1467,8 +1467,8 @@ router.get('/match', async (req,res,next) => {
 					foundUser.gamesystem.callOfCthulu == true
 				)
 			) {
-			let foundPC = await User.find(
-				{$and:[
+			let foundPC = await User.find({
+				$and:[
 					{
 						playerCharacter: true
 					},
@@ -1488,10 +1488,12 @@ router.get('/match', async (req,res,next) => {
 
 		res.json({
 			status: 200,
-			data: {foundResults}
+			data: {
+				gamesystems: Object.keys(foundResults),
+				results: foundResults
+			}
 		})
-		console.log(foundResults, "here is everything in the foundResults");
-		console.log(foundResults);
+
 	} catch(err) {
 		next(err)
 	}
