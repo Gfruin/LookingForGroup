@@ -86,6 +86,7 @@ router.get('/match', async (req,res,next) => {
 				data: foundDungeonMaster
 			})
 
+
 			console.log("1st if");
 		}// if
 
@@ -198,11 +199,11 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundDungeonMaster
-			})
+			next()
+			// res.json({
+			// 	status: 200,
+			// 	data: foundDungeonMaster
+			// })
 			console.log("4th if");
 		}
 // <<<<----------GM looking for PC's------->>>>>>>>
@@ -240,11 +241,11 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			next()
+			// res.json({
+			// 	status: 200,
+			// 	data: foundPC
+			// })
 			
 			console.log("1st if, foundPC");
 		}// if
@@ -282,11 +283,11 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			next()
+			// res.json({
+			// 	status: 200,
+			// 	data: foundPC
+			// })
 
 			console.log("2nd if, foundPC");
 		}
@@ -324,10 +325,11 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			next()
+			// res.json({
+			// 	status: 200,
+			// 	data: foundPC
+			// })
 			console.log("3rd if, foundPC");
 		}
 
@@ -358,11 +360,11 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			next()
+			// res.json({
+			// 	status: 200,
+			// 	data: foundPC
+			// })
 			console.log("4th if, foundPC");
 		}
 
