@@ -240,10 +240,6 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundDungeonMaster, "foundDungeonMaster");
 
 			res.json({
 				status: 200,
@@ -406,9 +402,6 @@ router.get('/match', async (req,res,next) => {
 				]
 			})
 			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
 
 			res.json({
 				status: 200,
@@ -699,7 +692,7 @@ router.get('/match', async (req,res,next) => {
 			console.log("4th if, foundPC for pathfinder");
 		}
 
-//<<<<<<<<<------------user starfinder logic
+//<<<<<<<<<------------user starfinder logic-------->>>>>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
@@ -862,7 +855,7 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundGameMaster for starfinder");
 		}
-// <<<<----------GM looking for PC's------->>>>>>>>
+// <<<<----------Starfind LFG GM------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
@@ -897,10 +890,6 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
 
 			res.json({
 				status: 200,
@@ -1026,6 +1015,7 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundPC for starfinder");
 		}
+//<<<<<<<<<----------LFG dnd3_5 user--------->>>>>>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
@@ -1060,10 +1050,6 @@ router.get('/match', async (req,res,next) => {
 				]
 			})
 			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
-
 			res.json({
 				status: 200,
 				data: foundGameMaster
@@ -1188,7 +1174,7 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundGameMaster for dnd3_5");
 		}
-// <<<<----------GM looking for PC's------->>>>>>>>
+// <<<<----------LFG dnd 3_5 GM------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
@@ -1223,10 +1209,6 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
 
 			res.json({
 				status: 200,
@@ -1352,6 +1334,8 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundPC for dnd3_5");
 		}
+
+//<<<<<<<<----------------LFG call of Cthulu user --------->>>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == false && 
@@ -1514,7 +1498,7 @@ router.get('/match', async (req,res,next) => {
 			})
 			console.log("4th if, foundGameMaster for callOfCthulu");
 		}
-// <<<<----------GM looking for PC's------->>>>>>>>
+// <<<<----------LFG call of Cthulu GM------->>>>>>>>
 		if(
 			(
 				foundUser.gamemaster == true && 
@@ -1550,10 +1534,6 @@ router.get('/match', async (req,res,next) => {
 
 			})
 			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
-
 			res.json({
 				status: 200,
 				data: foundPC
