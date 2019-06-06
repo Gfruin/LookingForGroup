@@ -32,16 +32,22 @@ router.get('/match', async (req,res,next) => {
 	// console.log(User, "here is the User");
 	try {
 		const foundUser = await User.findById(req.session.userDBId) //will need req.session._id
-		console.log(foundUser, "foundUser");
-		console.log(foundUser, "here is the foundUser");
-		console.log(foundUser.gamesystem.dnd5e, "here is the gamesystem");
+		// console.log(foundUser, "foundUser");
+		// console.log(foundUser, "here is the foundUser");
+		// console.log(foundUser.gamesystem.dnd5e, "here is the gamesystem");
 		// res.json({
 		// 	status: 200,
 		// 	data: foundUser
 		// })
-
+	
 		//<--------------GM/PC LOOKING FOR D&D 5E GROUP---------------->
 
+		let foundResults = {};
+		foundResults.fifthEd = {players:[], gamemasters:[]};
+		// console.log(foundResults);
+		// console.log(foundResults.fifthEd, 'here is foundResults.fifthEd');
+		// console.log(foundResults.fifthEd.players, 'here is foundResults.fifthEd.players');
+		// console.log(foundResults.fifthEd.gamemasters, 'here is the foundResults.fifthEd.gamemasters');
 		//<-----PC looking for GM----->>>>>>
 		if(
 			(
@@ -76,17 +82,7 @@ router.get('/match', async (req,res,next) => {
 						"gamestyle.roleplay" : true}
 				]
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundDungeonMaster, "foundDungeonMaster");
-
-			res.json({
-				status: 200,
-				data: foundDungeonMaster
-			})
-
-
+			foundResults.fifthEd = {players:[], gamemasters: foundDungeonMaster};
 			console.log("1st if");
 		}// if
 
@@ -123,12 +119,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundDungeonMaster
-			})
-
+			foundResults.fifthEd = {players:[], gamemasters: foundDungeonMaster};
 			console.log("2nd if");
 		}
 
@@ -165,10 +156,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundDungeonMaster
-			})
+			foundResults.fifthEd = {players:[], gamemasters: foundDungeonMaster};
 			console.log("3rd if");
 		}
 
@@ -199,11 +187,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			next()
-			// res.json({
-			// 	status: 200,
-			// 	data: foundDungeonMaster
-			// })
+			foundResults.fifthEd = {players:[], gamemasters: foundDungeonMaster};
 			console.log("4th if");
 		}
 // <<<<----------GM looking for PC's------->>>>>>>>
@@ -241,12 +225,7 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			next()
-			// res.json({
-			// 	status: 200,
-			// 	data: foundPC
-			// })
-			
+			foundResults.fifthEd = {players: foundPC};
 			console.log("1st if, foundPC");
 		}// if
 
@@ -283,12 +262,12 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			next()
+			
 			// res.json({
 			// 	status: 200,
 			// 	data: foundPC
 			// })
-
+			foundResults.fifthEd = {players: foundPC};
 			console.log("2nd if, foundPC");
 		}
 
@@ -325,11 +304,8 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			next()
-			// res.json({
-			// 	status: 200,
-			// 	data: foundPC
-			// })
+			
+			foundResults.fifthEd = {players: foundPC};
 			console.log("3rd if, foundPC");
 		}
 
@@ -360,11 +336,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			next()
-			// res.json({
-			// 	status: 200,
-			// 	data: foundPC
-			// })
+			foundResults.fifthEd = {players: foundPC};
 			console.log("4th if, foundPC");
 		}
 
@@ -400,16 +372,11 @@ router.get('/match', async (req,res,next) => {
 					}, 
 					
 					{
-						"gamestyle.roleplay" : true}
+						"gamestyle.roleplay" : true
+					}
 				]
 			})
-			
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.pathfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("1st if, foundGameMaster for pathfinder");
 		}// if
 
@@ -446,12 +413,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.pathfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("2nd if, foundGameMaster for pathfinder");
 		}
 
@@ -488,10 +450,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.pathfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("3rd if, foundGameMaster for pathfinder");
 		}
 
@@ -522,11 +481,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.pathfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("4th if, foundGameMaster for pathfinder");
 		}
 // <<<<----------GM looking for PC's------->>>>>>>>
@@ -564,16 +519,7 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-			
+			foundResults.pathfinder = {players: foundPC};
 			console.log("1st if, foundPC for pathfinder");
 		}// if
 
@@ -610,12 +556,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-
+			foundResults.pathfinder = {players: foundPC};
 			console.log("2nd if, foundPC for pathfinder");
 		}
 
@@ -652,10 +593,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.pathfinder = {players: foundPC};
 			console.log("3rd if, foundPC, for pathfinder");
 		}
 
@@ -686,11 +624,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.pathfinder = {players: foundPC};
 			console.log("4th if, foundPC for pathfinder");
 		}
 
@@ -725,19 +659,11 @@ router.get('/match', async (req,res,next) => {
 					}, 
 					
 					{
-						"gamestyle.roleplay" : true}
+						"gamestyle.roleplay" : true
+					}
 				]
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.starfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("1st if, foundGameMaster for starfinder");
 		}// if
 
@@ -774,12 +700,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.starfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("2nd if, foundGameMaster for starfinder");
 		}
 
@@ -816,10 +737,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.starfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("3rd if, foundGameMaster for starfinder");
 		}
 
@@ -850,11 +768,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.starfinder = {players:[], gamemasters: foundGameMaster};
 			console.log("4th if, foundGameMaster for starfinder");
 		}
 // <<<<----------Starfind LFG GM------->>>>>>>>
@@ -892,12 +806,7 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-			
+			foundResults.starfinder = {players: foundPC};
 			console.log("1st if, foundPC for starfinder");
 		}// if
 
@@ -934,12 +843,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-
+			foundResults.starfinder = {players: foundPC};
 			console.log("2nd if, foundPC for starfinder");
 		}
 
@@ -976,10 +880,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.starfinder = {players: foundPC};
 			console.log("3rd if, foundPC, for starfinder");
 		}
 
@@ -1010,11 +911,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.starfinder = {players: foundPC};
 			console.log("4th if, foundPC for starfinder");
 		}
 //<<<<<<<<<----------LFG dnd3_5 user--------->>>>>>>>>>>>>
@@ -1051,12 +948,7 @@ router.get('/match', async (req,res,next) => {
 						"gamestyle.roleplay" : true}
 				]
 			})
-			
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.dnd3_5 = {players:[], gamemasters: foundGameMaster};
 			console.log("1st if, foundGameMaster for dnd3_5");
 		}// if
 
@@ -1093,12 +985,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.dnd3_5 = {players:[], gamemasters: foundGameMaster};
 			console.log("2nd if, foundGameMaster for dnd3_5");
 		}
 
@@ -1135,10 +1022,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.dnd3_5 = {players:[], gamemasters: foundGameMaster};
 			console.log("3rd if, foundGameMaster for dnd3_5");
 		}
 
@@ -1169,11 +1053,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.dnd3_5 = {players:[], gamemasters: foundGameMaster};
 			console.log("4th if, foundGameMaster for dnd3_5");
 		}
 // <<<<----------LFG dnd 3_5 GM------->>>>>>>>
@@ -1211,12 +1091,7 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-			
+			foundResults.dnd3_5 = {players: foundPC};
 			console.log("1st if, foundPC for dnd3_5");
 		}// if
 
@@ -1253,12 +1128,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-
+			foundResults.dnd3_5 = {players: foundPC};
 			console.log("2nd if, foundPC for dnd3_5");
 		}
 
@@ -1295,10 +1165,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.dnd3_5 = {players: foundPC};
 			console.log("3rd if, foundPC, for dnd3_5");
 		}
 
@@ -1329,11 +1196,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.dnd3_5 = {players: foundPC};
 			console.log("4th if, foundPC for dnd3_5");
 		}
 
@@ -1371,16 +1234,7 @@ router.get('/match', async (req,res,next) => {
 						"gamestyle.roleplay" : true}
 				]
 			})
-			
-
-			// console.log("\n\n\n\n\n here is what the query found")
-			// console.log(foundGameMaster, "foundGameMaster");
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.callOfCthulu = {players: [], gamemasters: foundGameMaster};
 			console.log("1st if, foundGameMaster for callOfCthulu");
 		}// if
 
@@ -1417,12 +1271,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
-
+			foundResults.callOfCthulu = {players: [], gamemasters: foundGameMaster};
 			console.log("2nd if, foundGameMaster for callOfCthulu");
 		}
 
@@ -1459,10 +1308,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.callOfCthulu = {players: [], gamemasters: foundGameMaster};
 			console.log("3rd if, foundGameMaster for callOfCthulu");
 		}
 
@@ -1493,11 +1339,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundGameMaster
-			})
+			foundResults.callOfCthulu = {players: [], gamemasters: foundGameMaster};
 			console.log("4th if, foundGameMaster for callOfCthulu");
 		}
 // <<<<----------LFG call of Cthulu GM------->>>>>>>>
@@ -1535,12 +1377,7 @@ router.get('/match', async (req,res,next) => {
 				]
 
 			})
-			
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-			
+			foundResults.callOfCthulu = {players: foundPC};
 			console.log("1st if, foundPC for callOfCthulu");
 		}// if
 
@@ -1577,12 +1414,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
-
+			foundResults.callOfCthulu = {players: foundPC};
 			console.log("2nd if, foundPC for callOfCthulu");
 		}
 
@@ -1619,10 +1451,7 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.callOfCthulu = {players: foundPC};
 			console.log("3rd if, foundPC, for callOfCthulu");
 		}
 
@@ -1653,14 +1482,16 @@ router.get('/match', async (req,res,next) => {
 					}
 				]
 			})
-
-			res.json({
-				status: 200,
-				data: foundPC
-			})
+			foundResults.callOfCthulu = {players: foundPC};
 			console.log("4th if, foundPC for callOfCthulu");
 		}
 
+		res.json({
+			status: 200,
+			data: {foundResults}
+		})
+		console.log(foundResults, "here is everything in the foundResults");
+		console.log(foundResults);
 	} catch(err) {
 		next(err)
 	}
