@@ -65,6 +65,7 @@ router.post('/login', async (req,res,next) => {
 				console.log(req.session.userDBId, 'here is the req.session.userDBId');
 				req.session.username = foundUser.username;
 				req.session.email = foundUser.email;
+				req.session.password = foundUser.password
 				console.log(req.session, 'you have successfully logged in');
 				res.json({
 					status: 200,

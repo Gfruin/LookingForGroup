@@ -1555,6 +1555,10 @@ router.delete('/:id', async (req,res,next) => {
 router.put('/:id', async (req,res,next) => {
 	try {
 		const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new:true})
+		req.session.logged = true;
+		req.session.username = req.body.username
+		req.session.password = req.body.password
+		req.session.email = req.body.email;
 		res.json({
 			status: 200,
 			data: updatedUser
