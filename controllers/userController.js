@@ -1563,6 +1563,7 @@ router.put('/:id', async (req,res,next) => {
 			status: 200,
 			data: updatedUser
 		})
+		console.log(updatedUser, 'here is the updatedUser data');
 	} catch(err) {
 		next(err)
 	}
