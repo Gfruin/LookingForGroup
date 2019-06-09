@@ -3,8 +3,6 @@ const router = express.Router();
 const User = require('../models/user');
 const Group = require('../models/group');
 const Join = require('../models/join');
-const session = require('express-session')
-
 
 //user index all users route 
 //Needs to grab all the users with username and basic infor
@@ -29,8 +27,10 @@ router.get('/match', async (req,res,next) => {
 	console.log(req.session.userDBId, 'here is the req.session.userDBId');
 	console.log("^^^^^^^^^^^^^^^^^ req.session.userDBId");
 	console.log(req.session, 'here is the req.session');
+
 	// console.log(User, "here is the User");
 	try {
+		console.log(req.session.userDBId, 'here is the req.session.userDBId in the try');
 		const foundUser = await User.findById(req.session.userDBId) //will need 
 	
 		//<--------------GM/PC LOOKING FOR D&D 5E GROUP---------------->
@@ -1559,6 +1559,8 @@ router.put('/:id', async (req,res,next) => {
 		req.session.username = req.body.username
 		req.session.password = req.body.password
 		req.session.email = req.body.email;
+		// req.session.userDBId = req.body._id
+		console.log(updatedUser, 'here is the updatedUser in the update route');
 		await updatedUser.save()
 		res.json({
 			status: 200,

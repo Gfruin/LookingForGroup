@@ -6,16 +6,16 @@ const bcrypt = require('bcrypt');
 
 //GET route
 
-router.get('/login', async (req,res,next) => {
-	try {
-		res.json({
-			status: 500, //is this correct?
-			data: 'you are not logged in'
-		})
-	} catch(err) {
-		next(err)
-	}
-}); //end of GET route
+// router.get('/login', async (req,res,next) => {
+// 	try {
+// 		res.json({
+// 			status: 500, //is this correct?
+// 			data: 'you are not logged in'
+// 		})
+// 	} catch(err) {
+// 		next(err)
+// 	}
+// }); //end of GET route
 
 
 // create registration with bcrypt 
@@ -38,6 +38,11 @@ router.post('/register', async (req,res,next) => {
 		req.session.logged = true;
 		req.session.userDBId = createdUser._id;
 		req.session.username = createdUser.username
+
+		console.log('you have successfully logged in')
+		console.log('here is the session:')
+		console.log(req.session)
+
 		res.json({
 			status: 200,
 			data: createdUser
@@ -66,11 +71,17 @@ router.post('/login', async (req,res,next) => {
 				req.session.username = foundUser.username;
 				req.session.email = foundUser.email;
 				req.session.password = foundUser.password
-				console.log(req.session, 'you have successfully logged in');
+
+				console.log('you have successfully logged in')
+				console.log('here is the session:')
+				console.log(req.session)
+
 				res.json({
 					status: 200,
 					data: foundUser
 				})
+
+
 			} else {
 				console.log('the email address was not found');
 				req.session.message = 'Email or Password is incorrect'
