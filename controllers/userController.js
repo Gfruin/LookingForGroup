@@ -1559,6 +1559,7 @@ router.put('/:id', async (req,res,next) => {
 		req.session.username = req.body.username
 		req.session.password = req.body.password
 		req.session.email = req.body.email;
+		await updatedUser.save()
 		res.json({
 			status: 200,
 			data: updatedUser
