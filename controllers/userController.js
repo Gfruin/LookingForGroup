@@ -1482,7 +1482,7 @@ router.get('/match', async (req,res,next) => {
 				results: foundResults
 			}
 		})
-
+		console.log(foundResults);
 	} catch(err) {
 		next(err)
 	}
