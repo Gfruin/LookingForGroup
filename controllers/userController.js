@@ -1536,8 +1536,10 @@ router.get('/:id', async (req,res,next) => {
 //deletes the user
 
 router.delete('/:id', async (req,res,next) => {
+	console.log('hitting the deletedUser');
 	try {
 		const deletedUser = await User.findByIdAndRemove(req.params.id);
+		console.log('deletedUser was found');
 		res.json({
 			status: 200,
 			data: deletedUser,
