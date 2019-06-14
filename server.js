@@ -37,10 +37,6 @@ const userController = require('./controllers/userController');
 
 app.use('/api/v1/auth', authController)
 app.use('/api/v1/user', userController)
-// app.get('/', (req,res,next) => {
-// 	res.render('home.ejs')
-
-// })
 
 //app listener
 
