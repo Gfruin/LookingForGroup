@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 
 const corsOptions = {
-	origin: process.env.REACT_CLIENT_URL,
+	origin: process.env.REACT_CLIENT_URL.split('').pop().join(''),
 	credentials: true,
 	optionsSuccessStatus: 200
 }
