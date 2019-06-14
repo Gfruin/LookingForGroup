@@ -442,6 +442,7 @@ if(
 		// //<-----looking for group----->
 		// const lookingForGroup = await User.find({lookingForGroup: true})
 
+		
 		// // if(foundUser.gamesystem.dnd5e == true) {
 		// // }
 		// // if foundUser marks true for any gamesystems and found users have any of these game systems marked true
