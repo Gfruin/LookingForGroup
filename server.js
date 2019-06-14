@@ -39,7 +39,7 @@ app.use('/api/v1/auth', authController)
 app.use('/api/v1/user', userController)
 
 //app listener
-
+console.log(process.env);
 app.listen(process.env.PORT, () => {
 	console.log('app listening on PORT', process.env.PORT);
 })
