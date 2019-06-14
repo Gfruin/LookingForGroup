@@ -38,6 +38,12 @@ const userController = require('./controllers/userController');
 app.use('/api/v1/auth', authController)
 app.use('/api/v1/user', userController)
 
+
+app.get('/url', (_, res) => {
+	res.send(process.env.REACT_CLIENT_URL)	
+})
+
+
 //app listener
 console.log(process.env);
 app.listen(process.env.PORT, () => {
