@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 app.use(methodOverride('_method'))
 
 const corsOptions = {
-	origin: process.env.REACT_CLIENT_URL.split('').pop().join(''),
+	origin: process.env.REACT_CLIENT_URL,
 	credentials: true,
 	optionsSuccessStatus: 200
 }
@@ -47,6 +47,7 @@ app.get('/url', (_, res) => {
 //app listener
 console.log(process.env);
 app.listen(process.env.PORT, () => {
+	console.log("the REACT_CLIENT_URL is ", process.env.REACT_CLIENT_URL);
 	console.log('app listening on PORT', process.env.PORT);
 })
 
