@@ -10,7 +10,6 @@ USER STORIES:
     - Looking for GM 
     - Looking for PC’s
     - Game Environment(Online, In-person, Mixed)
-    - Location marker through Google maps API
     - Will be able to set their zip code
 4. User will be able to define these categories:
     - Party size
@@ -41,7 +40,7 @@ STRETCH GOALS:
 4. Users will be able to create posts to discuss D&D
 5. Users will be able to have conversations with multiple participants
 6. Users will be able to send out push notifications based on current conversations
-
+7. Users will be able to see location markers of other users nearby through Google maps API
 
 ------------
 APP FEATURES
