@@ -95,7 +95,7 @@ router.post('/login', async (req,res,next) => {
 		next(err)
 	}
 }) //end of login route
-
+	// logout 
 router.get('/logout', async (req,res,next) => {
 	req.session.destroy((err) => {
 		if(err){
@@ -107,7 +107,7 @@ router.get('/logout', async (req,res,next) => {
 			})
 		}
 	})
-})
+}) //end of logout
 
 
 module.exports = router;
