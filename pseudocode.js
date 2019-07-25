@@ -5,7 +5,17 @@
 
 // "_id": "5cf82dacd978dd3d94434f0f",
 
+//--------7/24/19----//
 
+//Need to work on extracting my large user Controller
+//break it down, by functionality
+//export--->import the files into the get route of my user controller
+// store the the conditions that define user search 
+//
+
+
+
+//--------7/24/19----//
 
 
 // <----------------------------What one get route looks like when using mongoose and mongo queries---------->>>>>>>
