@@ -4,7 +4,7 @@
   "description": "<------------> USER STORIES: <------------> 1. User will be able to create account 2. User will be able to define account as either “GameMaster” (GM) or “Player” (PC) 3. User will be able to categorize themselves with these markers:     - Looking for group     - Looking for GM      - Looking for PC’s     - Game Environment(Online, In-person, Mixed)     - Location marker through Google maps API     - Will be able to set their zip code 4. User will be able to define these categories:     - Party size     - Is available? switch on and off     - Skillset     - Preferred gamestyle(roleplay heavy, rules oriented, combat heavy, dungeon crawl)     - Gamemaster materials (miniatures, maps, dice, books, etc)     - Description     - Experience 5. User will be able to search the database of users based on these categories to find groups 6. User will be be able to see users with similar categories",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
